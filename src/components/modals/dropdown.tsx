@@ -9,13 +9,13 @@ interface Option {
 }
 
 interface DropDownProps {
-  options: Option[];
+  availableOptions: Option[]
   selectedOption: string;
   onSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   onDropdownClose: () => void;
 }
 
-const Dropdown = ({ options, selectedOption, onSelectChange, onDropdownClose }: DropDownProps) => {
+const Dropdown = ({ availableOptions,selectedOption, onSelectChange, onDropdownClose }: DropDownProps) => {
   return (
     <div className='mb-5 flex items-center'>
       {/* colored circle */}
@@ -29,7 +29,7 @@ const Dropdown = ({ options, selectedOption, onSelectChange, onDropdownClose }: 
           value={selectedOption}
           onChange={onSelectChange}
         >
-          {options.map((option, index) => (
+          {availableOptions.map((option, index) => (
             <option key={index} value={option.value}>
               {option.label}
             </option>
