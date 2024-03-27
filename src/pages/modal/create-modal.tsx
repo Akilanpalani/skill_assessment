@@ -70,7 +70,7 @@ const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
   );
 
   const availableOptions: Option[] = options.filter(
-    (option) => !usedOptions.includes(option.value)
+    (option) => !usedOptions.includes(option.label)
   );
 
   // api call
