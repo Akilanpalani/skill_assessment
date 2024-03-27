@@ -15,7 +15,7 @@ interface Option {
   value: string;
 }
 
-export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
+const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
   const [showDropdown, setShowDropdown] = useState([
     {
       id: 1,
@@ -189,3 +189,5 @@ export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
     </>
   );
 };
+
+export default CreateModal;

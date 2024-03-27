@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { CreateModal } from "@/pages/modal/create-modal";
+import CreateModal  from "@/pages/modal/create-modal";
 
 export default function Home() {
 
