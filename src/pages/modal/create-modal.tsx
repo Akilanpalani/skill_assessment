@@ -1,4 +1,4 @@
-import { AiOutlineMinusSquare, AiOutlineArrowLeft } from 'react-icons/ai';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 import React, { useState } from 'react';
 
 import { RadioButton } from '@/components/radio/RadioButton';
@@ -61,7 +61,7 @@ export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
 
   const usedOptions: string[] = showDropdown.reduce(
     (acc: string[], dropdown) => {
-      if (dropdown.selectedOption === '') {
+      if (dropdown.selectedOption !== '') {
         acc.push(dropdown.selectedOption);
       }
       return acc;
@@ -70,7 +70,7 @@ export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
   );
 
   const availableOptions: Option[] = options.filter(
-    (option) => !usedOptions.includes(option.value) || option.value === ''
+    (option) => !usedOptions.includes(option.value)
   );
 
   // api call
@@ -122,7 +122,6 @@ export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
           }`}
         >
           <div className='bg-[#39AEBC] p-5 flex items-center'>
-            {/* <FiChevronsLeft /> */}
             <AiOutlineArrowLeft className='mr-5 text-white' />
             <h1 className='text-white'>Saving Segment</h1>
           </div>
@@ -155,7 +154,7 @@ export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
                   dropdown.showDropdown && (
                     <Dropdown 
                       key={dropdown.id}
-                      options={availableOptions}
+                      availableOptions={availableOptions}
                       selectedOption={dropdown.selectedOption}
                       onSelectChange={(e)=> handleSelectChange(e,dropdown.id)}
                       onDropdownClose={() => handleCloseDropdown(dropdown.id)}
@@ -165,7 +164,7 @@ export const CreateModal = ({ isOpen, isModalClose }: ModalProps) => {
               )}
               <div className='mt-5'>
                 <button onClick={handleAddNewSchema}>
-                  <a className='text-blue-500 underline'>+ Add New Schema</a>
+                  <a className='text-blue-500 underline ml-10'>+ Add New Schema</a>
                 </button>
               </div>
             </div>
